@@ -69,7 +69,11 @@ NavMeshProjectSettings:
     cost: 1
   - name: 
     cost: 1
+<<<<<<< HEAD
   m_LastAgentTypeID: -1372625422
+=======
+  m_LastAgentTypeID: -334000983
+>>>>>>> Yulia
   m_Settings:
   - serializedVersion: 2
     agentTypeID: 0
@@ -85,6 +89,11 @@ NavMeshProjectSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+<<<<<<< HEAD
+=======
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
+>>>>>>> Yulia
     debug:
       m_Flags: 0
   m_SettingNames:
