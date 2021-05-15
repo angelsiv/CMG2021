@@ -11,13 +11,16 @@ public class RedEnemy : EnemyBase
         this.enemyType = EnemyType.red;
     }
 
-    void Start()
-    {
-    }
-
     public override void Attack()
     {
-        Instantiate(projectile, offset.position, transform.rotation);
+        Instantiate(projectile, transform.position, new UnityEngine.Quaternion(transform.forward.x, transform.forward.y, 0.0f, transform.rotation.w));
+    }
+
+    protected void Update()
+    {
+        base.Update();
+
+       Attack();
     }
 
     public override void OnDamage(int damage, int attacktype)

@@ -10,11 +10,6 @@ public class YellowEnemy : EnemyBase
 
     }
 
-    void Start()
-    {
-    }
-
-
     public override void Attack()
     {
         Instantiate(projectile, offset.position, transform.rotation);

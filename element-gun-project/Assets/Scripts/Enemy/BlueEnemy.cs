@@ -9,13 +9,6 @@ public class BlueEnemy : EnemyBase
     {
         this.enemyType = EnemyType.blue;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
- 
     public override void Attack()
     {
         Instantiate(projectile, offset.position, transform.rotation);
