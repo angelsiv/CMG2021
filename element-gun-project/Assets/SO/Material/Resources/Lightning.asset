@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50f5d88700c064941b2b164d9945cf3d, type: 3}
-  m_Name: Fire
+  m_Name: Lightning
   m_EditorClassIdentifier: 
   type: 1
   chemicalFormula:
   - {fileID: 11400000, guid: 9e6ae8070405732418c02bef24e9927f, type: 2}
-  - {fileID: 11400000, guid: ad13f995a527fa742ab05405451409d7, type: 2}
