@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 7445783547423521625}
   m_Layer: 0
   m_Name: gum_gum_gun (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,6 +140,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   playerRigidbody: {fileID: 7445783547423521624}
+--- !u!65 &6959078354246692915
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7752337072351988801}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16367342, y: 0.42, z: 0.8873186}
+  m_Center: {x: -0.0059462236, y: 0.08897847, z: 0.0024576788}
 --- !u!1001 &7445783545981497616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -216,6 +229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: gum_gum_gun_MATFIX
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 63c8e68285ea7ab429090c5285101f61,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63c8e68285ea7ab429090c5285101f61, type: 3}
