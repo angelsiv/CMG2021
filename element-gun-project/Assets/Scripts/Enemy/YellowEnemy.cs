@@ -12,7 +12,7 @@ public class YellowEnemy : EnemyBase
 
     public override void Attack()
     {
-        Instantiate(projectile, offset.position, transform.rotation);
+        Instantiate(projectile, transform.position, UnityEngine.Quaternion.identity);
     }
 
     public override void OnDamage(int damage, int attacktype)

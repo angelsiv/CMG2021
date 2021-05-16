@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class BlueEnemy : EnemyBase
@@ -11,7 +8,7 @@ public class BlueEnemy : EnemyBase
     }
     public override void Attack()
     {
-        Instantiate(projectile, offset.position, transform.rotation);
+        Instantiate(projectile, transform.position, Quaternion.identity);
     }
 
     public override void OnDamage(int damage, int attacktype)
