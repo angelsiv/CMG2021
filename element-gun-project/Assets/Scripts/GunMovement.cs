@@ -12,7 +12,7 @@ using Vector3 = UnityEngine.Vector3;
 
 public class GunMovement : MonoBehaviour
 {
-    private Camera cam;
+    [SerializeField] private Camera cam;
 
     private Transform inputEnd;
     private Transform outputEnd;
@@ -28,7 +28,6 @@ public class GunMovement : MonoBehaviour
 
     private void Start()
     {
-        cam = Camera.main;
         currentGunEnd = inputEnd;
     }
 
