@@ -13,14 +13,12 @@ public class RedEnemy : EnemyBase
 
     public override void Attack()
     {
-        Instantiate(projectile, transform.position, new UnityEngine.Quaternion(transform.forward.x, transform.forward.y, 0.0f, transform.rotation.w));
+        Instantiate(projectile, transform.position, UnityEngine.Quaternion.identity);
     }
 
     protected void Update()
     {
         base.Update();
-
-       Attack();
     }
 
     public override void OnDamage(int damage, int attacktype)
