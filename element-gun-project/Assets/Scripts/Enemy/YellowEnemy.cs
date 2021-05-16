@@ -15,8 +15,28 @@ public class YellowEnemy : EnemyBase
         Instantiate(projectile, transform.position, UnityEngine.Quaternion.identity);
     }
 
-    public override void OnDamage(int damage, int attacktype)
+    public override void OnDamage(int damage, MixedOutputType attacktype)
     {
+        switch (attacktype)
+        {
+            case MixedOutputType.Water:
+                health -= damage;
+                break;
+            case MixedOutputType.Fire:
+                health -= damage;
+                break;
+            case MixedOutputType.Acid:
+                health -= damage * 3;
+                break;
+            case MixedOutputType.None:
+                health -= damage;
+                break;
+        }
+
+        if (health <= 0)
+        {
+            Dead();
+        }
     }
 
 }
