@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Potassium
   m_EditorClassIdentifier: 
   type: 0
-  uiElement: {fileID: 0}
+  uiElement: {fileID: 7974568296879869583, guid: 582b0dd8ae0f76042b1d34fced19dd6e,
+    type: 3}
   prefab: {fileID: 0}

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Oxygen
   m_EditorClassIdentifier: 
   type: 1
-  uiElement: {fileID: 0}
+  uiElement: {fileID: -781623117209871144, guid: 582b0dd8ae0f76042b1d34fced19dd6e,
+    type: 3}
   prefab: {fileID: 0}

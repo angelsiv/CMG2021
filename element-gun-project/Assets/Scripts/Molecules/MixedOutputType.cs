@@ -5,7 +5,7 @@ using UnityEngine;
 public enum MixedOutputType
 {
 	Water = 0,
-	Fire = 1,
+	Lightning = 1,
 	Acid = 2,
 	None = 3
 }

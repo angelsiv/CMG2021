@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecf99a4adf51235419cd76fe237af861, type: 3}
-  m_Name: Wood
+  m_Name: Electron
   m_EditorClassIdentifier: 
   type: 3
-  uiElement: {fileID: 0}
+  uiElement: {fileID: -4894653285991734878, guid: 582b0dd8ae0f76042b1d34fced19dd6e,
+    type: 3}
   prefab: {fileID: 0}

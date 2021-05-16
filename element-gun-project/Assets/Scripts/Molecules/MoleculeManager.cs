@@ -10,58 +10,69 @@ public class MoleculeManager : MonoBehaviour
 	[SerializeField] private List<Molecule> ammo = null;
 	[SerializeField] private List<MixedOutputType> possibleOutput = null;
 	[SerializeField] private int MaxAmmo = 4;
+	[SerializeField] private MixedOutputType currentlyEquipped = MixedOutputType.None;
+	[SerializeField] private int currentIndex = 0;
 
-	[SerializeField] private int HCount = 0;
-	[SerializeField] private int OCount = 0;
-	[SerializeField] private int KCount = 0;
-	[SerializeField] private int woodCount = 0;
+	public event Action<List<Molecule>,MixedOutputType> OnUIUpdated;
 	
 	private void Awake()
 	{
-		materialsDatabase = CreateMaterialDatabase();
-		moleculesDatabase = CreateMoleculeDataBase();
+		currentlyEquipped = materialsDatabase[0].type;
+		
+	}
+
+
+	private void Start()
+	{
+		OnUIUpdated?.Invoke(ammo,currentlyEquipped);
 	}
 
 	private void Update()
 	{
+		//Temporary, to be replaced with collect event
 		if(Input.GetKeyDown(KeyCode.U)) AddAmmo(MoleculeType.Hydrogen);
 		if(Input.GetKeyDown(KeyCode.I)) AddAmmo(MoleculeType.Oxygen);
 		if(Input.GetKeyDown(KeyCode.O)) AddAmmo(MoleculeType.Potassium);
-		if(Input.GetKeyDown(KeyCode.P)) AddAmmo(MoleculeType.Wood);
-		
-		if(Input.GetKeyDown(KeyCode.Space)) OutputMaterial(MixedOutputType.Water);
+		if(Input.GetKeyDown(KeyCode.P)) AddAmmo(MoleculeType.Electron);
+		/////////////////////////////////////////////////////////////////
 
-		HCount = AmountOfMolecule(MoleculeType.Hydrogen, ammo);
-		OCount = AmountOfMolecule(MoleculeType.Oxygen, ammo);
-		KCount = AmountOfMolecule(MoleculeType.Potassium, ammo);
-		woodCount = AmountOfMolecule(MoleculeType.Wood, ammo);
+		if (Input.GetKeyDown(KeyCode.E)) IncreaseIndex();
+		if (Input.GetKeyDown(KeyCode.Q)) DecreaseIndex();
+		if (Input.GetMouseButtonDown(0)) OutputMaterial(currentlyEquipped);
 
 		possibleOutput = CheckPossibleMaterials();
 	}
 
-	List<Molecule> CreateMoleculeDataBase()
+	private void IncreaseIndex()
 	{
-		List<Molecule> database = new List<Molecule>();
-
-		foreach (Molecule rawMat in Resources.FindObjectsOfTypeAll(typeof(Molecule)) as Molecule[])
+		if (currentIndex < (materialsDatabase.Count-1))
 		{
-			database.Add(rawMat);
+			currentIndex++;
+		}
+		else if(currentIndex == (materialsDatabase.Count-1))
+		{
+			currentIndex = 0;
 		}
 
-		return database;
+		currentlyEquipped = materialsDatabase[currentIndex].type;
+		OnUIUpdated?.Invoke(ammo,currentlyEquipped);
+	}
+	private void DecreaseIndex()
+	{
+		if (currentIndex == 0)
+		{
+			currentIndex = materialsDatabase.Count - 1;
+		}
+		else if(currentIndex > 0)
+		{
+			currentIndex--;
+		}
+		
+		
+		currentlyEquipped = materialsDatabase[currentIndex].type;
+		OnUIUpdated?.Invoke(ammo,currentlyEquipped);
 	}
 	
-	List<MixedOutput> CreateMaterialDatabase()
-	{
-		List<MixedOutput> database = new List<MixedOutput>();
-
-		foreach (MixedOutput mat in Resources.FindObjectsOfTypeAll(typeof(MixedOutput)) as MixedOutput[])
-		{
-			database.Add(mat);
-		}
-
-		return database;
-	}
 	
 	public void AddAmmo(MoleculeType moleculeType)
 	{
@@ -74,6 +85,7 @@ public class MoleculeManager : MonoBehaviour
 		if (SearchForMolecule(moleculeType) is Molecule moleculeToAdd)
 		{
 			ammo.Add(moleculeToAdd);
+			OnUIUpdated?.Invoke(ammo,currentlyEquipped);
 		}
 	}
 
@@ -100,7 +112,7 @@ public class MoleculeManager : MonoBehaviour
 		{
 			ammo.Remove(molecule);
 		}
-		
+		OnUIUpdated?.Invoke(ammo, currentlyEquipped );
 	}
 	
 	private List<MixedOutputType> CheckPossibleMaterials()
