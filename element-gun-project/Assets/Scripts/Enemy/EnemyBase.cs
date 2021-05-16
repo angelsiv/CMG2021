@@ -38,9 +38,7 @@ abstract public class EnemyBase : MonoBehaviour
     protected EnemyType enemyType;
     protected bool bAttacking;
     private float timer;
-
     abstract public void OnDamage(int damage, MixedOutputType attacktype);
-  
 
     abstract public void Attack();
 
@@ -111,7 +109,6 @@ abstract public class EnemyBase : MonoBehaviour
         {
 
         }*/
-
     }
 
     protected void Dead()

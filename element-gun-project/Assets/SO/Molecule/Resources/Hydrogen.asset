@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Hydrogen
   m_EditorClassIdentifier: 
   type: 2
-  uiElement: {fileID: 0}
+  uiElement: {fileID: 2745170286151570764, guid: 582b0dd8ae0f76042b1d34fced19dd6e,
+    type: 3}
   prefab: {fileID: 0}

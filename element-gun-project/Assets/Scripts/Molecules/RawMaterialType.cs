@@ -8,6 +8,6 @@ public enum MoleculeType
    Potassium = 0,
    Oxygen = 1,
    Hydrogen = 2,
-   Wood = 3,
+   Electron = 3,
    None = 4
 }
