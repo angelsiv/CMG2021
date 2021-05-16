@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 7445783547423521625}
   m_Layer: 0
   m_Name: gum_gum_gun (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,6 +216,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: gum_gum_gun_MATFIX
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 63c8e68285ea7ab429090c5285101f61,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63c8e68285ea7ab429090c5285101f61, type: 3}

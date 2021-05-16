@@ -13,18 +13,37 @@ public class RedEnemy : EnemyBase
 
     public override void Attack()
     {
-        Instantiate(projectile, transform.position, new UnityEngine.Quaternion(transform.forward.x, transform.forward.y, 0.0f, transform.rotation.w));
+        Instantiate(projectile, transform.position, UnityEngine.Quaternion.identity);
     }
 
     protected void Update()
     {
         base.Update();
-
-       Attack();
     }
 
-    public override void OnDamage(int damage, int attacktype)
+    public override void OnDamage(int damage, MixedOutputType attacktype)
     {
+        switch (attacktype)
+        {
+            case MixedOutputType.Water:
+                health -= damage * 3;
+                break;
+            case MixedOutputType.Fire:
+                health -= damage;
+                break;
+            case MixedOutputType.Acid:
+                health -= damage;
+                break;
+            case MixedOutputType.None:
+                health -= damage;
+                break;
+        }
 
+        if (health <= 0)
+        {
+            Dead();
+        }
     }
+
+    
 }
