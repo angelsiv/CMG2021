@@ -35,7 +35,6 @@ public class GunMovement : MonoBehaviour
 
     private void Update()
     {
-        
     }
 
     private void FixedUpdate()
