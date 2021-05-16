@@ -24,7 +24,7 @@ abstract public class EnemyBase : MonoBehaviour
 
     [SerializeField] private EnemyLevel enemyLevel;
 
-    [SerializeField] private int health;
+    [SerializeField] protected int health;
     [SerializeField] private float startTimer;
 
     [SerializeField] protected Projectile projectile;
@@ -38,8 +38,7 @@ abstract public class EnemyBase : MonoBehaviour
     protected EnemyType enemyType;
     protected bool bAttacking;
     private float timer;
-
-    abstract public void OnDamage(int damage, int attacktype);
+    abstract public void OnDamage(int damage, MixedOutputType attacktype);
 
     abstract public void Attack();
 
@@ -110,7 +109,11 @@ abstract public class EnemyBase : MonoBehaviour
         {
 
         }*/
+    }
 
+    protected void Dead()
+    {
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()
@@ -122,5 +125,4 @@ abstract public class EnemyBase : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, idleRadius);
     }
-
 }

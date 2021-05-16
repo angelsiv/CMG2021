@@ -23,30 +23,24 @@ public class Projectile : MonoBehaviour
     protected void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        
 
-        Quaternion dir = Quaternion.FromToRotation(transform.rotation * Vector3.up, Quaternion.identity * Vector3.up);
-
-        transform.rotation = dir;
         if (transform.position.x == target.x && transform.position.y == target.y)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target * 2, speed * Time.deltaTime);
-            Destroy(gameObject, 5.0f);
+            DestroyProjectile();
+            //Destroy(gameObject, 5.0f);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Colliding with something");
-        //Destroy(gameObject);
 
         if (other.CompareTag("Player"))
         {
             Debug.Log("Colliding with player");
-            Destroy(gameObject);
 
             //DestroyProjectile();
             //player.GetComponent<Player> Deal Damage to player
+            Destroy(gameObject);
         }
     }
 
