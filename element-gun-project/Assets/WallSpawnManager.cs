@@ -8,6 +8,8 @@ public class WallSpawnManager : MonoBehaviour
     [SerializeField] private GameObject mediumWall = null;
     [SerializeField] private Transform topSpawner = null;
     [SerializeField] private int spawnRate = 20;
+    [SerializeField] private AudioSource audiosource = null;
+        
     private void Awake()
     {
         InvokeRepeating(nameof(InstantiateWall),5,spawnRate);
