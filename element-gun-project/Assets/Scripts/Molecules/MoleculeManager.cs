@@ -18,12 +18,17 @@ public class MoleculeManager : MonoBehaviour
 	private void Awake()
 	{
 		currentlyEquipped = materialsDatabase[0].type;
-		
 	}
 
 
 	private void Start()
 	{
+		OnUIUpdated?.Invoke(ammo,currentlyEquipped);
+	}
+
+	private void DumpFuel()
+	{
+		ammo.Clear();
 		OnUIUpdated?.Invoke(ammo,currentlyEquipped);
 	}
 
@@ -36,6 +41,7 @@ public class MoleculeManager : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.P)) AddAmmo(MoleculeType.Electron);
 		/////////////////////////////////////////////////////////////////
 
+		if (Input.GetKeyDown(KeyCode.V)) DumpFuel();
 		if (Input.GetKeyDown(KeyCode.E)) IncreaseIndex();
 		if (Input.GetKeyDown(KeyCode.Q)) DecreaseIndex();
 		if (Input.GetMouseButtonDown(0)) OutputMaterial(currentlyEquipped);
