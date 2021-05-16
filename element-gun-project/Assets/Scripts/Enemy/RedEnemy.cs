@@ -13,7 +13,8 @@ public class RedEnemy : EnemyBase
 
     public override void Attack()
     {
-        Instantiate(projectile, transform.position, new UnityEngine.Quaternion(transform.forward.x, transform.forward.y, 0.0f, transform.rotation.w));
+        Projectile projectileToSpawn = Instantiate(projectile, transform.position, new UnityEngine.Quaternion(transform.forward.x, transform.forward.y, 0.0f, transform.rotation.w));
+        projectileToSpawn.gameObject.SetActive(true);
     }
 
     protected void Update()

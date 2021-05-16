@@ -11,7 +11,9 @@ public class BlueEnemy : EnemyBase
     }
     public override void Attack()
     {
-        Instantiate(projectile, offset.position, transform.rotation);
+        Projectile projectileToSpawn = Instantiate(projectile, offset.position, transform.rotation);
+        projectileToSpawn.gameObject.SetActive(true);
+        
     }
 
     public override void OnDamage(int damage, int attacktype)

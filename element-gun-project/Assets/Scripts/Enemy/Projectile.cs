@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -8,9 +10,22 @@ public class Projectile : MonoBehaviour
 
     private int dir = 1;
 
+    [SerializeField] private int lifeCycle = 5;
+    
+    private void OnEnable()
+    {
+        StartCoroutine(WaitForDespawnCoroutine());
+    }
+
+    private IEnumerator WaitForDespawnCoroutine()
+    {
+        yield return new WaitForSeconds(lifeCycle);
+        Destroy(gameObject);
+    }
+    
     protected void Update()
     {
-        transform.position += (transform.right*(dir)) * Time.deltaTime * speed;
+        transform.position += (-transform.right*(dir)) * Time.deltaTime * speed;
     }
 
     protected void OnCollisionEnter(Collision collision)

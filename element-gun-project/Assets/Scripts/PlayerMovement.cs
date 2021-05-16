@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] float moveSpeed = 1.0f;
-    [SerializeField] private Rigidbody2D playerRigidbody;
+    [SerializeField] private Rigidbody playerRigidbody;
 
     private Vector2 moveDirection;
 
